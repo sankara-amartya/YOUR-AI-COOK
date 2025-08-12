@@ -1,9 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./app";
-function Main() {
-  return <App />;
-}
+import MainRouter from "./MainRouter";
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
-root.render(Main());
+root.render(<MainRouter />);

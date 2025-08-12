@@ -66,6 +66,7 @@ function App() {
             isEditing ? (
               <AddRecipeForm
                 recipeToEdit={selectedRecipe}
+                
                 onUpdateRecipe={handleUpdateRecipe}
               />
             ) : (
@@ -88,7 +89,8 @@ function App() {
           )}
         </div>
       ) : (
-        <Login onLogin={handleLogin} />
+        <Login onLogin={handleLogin} 
+        onclick="/login"/>
       )}
     </div>
   );

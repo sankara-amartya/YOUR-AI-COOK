@@ -1,31 +1,38 @@
+
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./login.module.css";
 
-// 1. Receive the 'onLogin' function as a prop
 function Login({ onLogin }) {
+  const navigate = useNavigate();
 
-  // 2. Create a function to handle the form submission
   const handleSubmit = (event) => {
-    // 3. This is the magic line that stops the page refresh
     event.preventDefault();
-
-    // 4. Call the onLogin function that was passed down from App.js
     onLogin();
+    navigate("/recipe");
   };
 
-  // 5. Tell the form to use your handleSubmit function
   return (
-    <div>
-      <h1>Login Page</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Username:</label>
-        <input type="text" name="username" />
-        <br />
-        <label>Password:</label>
-        <input type="password" name="password" />
-        <br />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <>
+      {/* Decorative food icons for background */}
+      <span className="food-icon fork" role="img" aria-label="fork">🍴</span>
+      <span className="food-icon spoon" role="img" aria-label="spoon">🥄</span>
+      <span className="food-icon pizza" role="img" aria-label="pizza">🍕</span>
+      <span className="food-icon cupcake" role="img" aria-label="cupcake">🧁</span>
+      <div className="login-container">
+        <h1>
+          <span role="img" aria-label="chef">👨‍🍳</span> Welcome Back!
+        </h1>
+        <div className="subtitle">Sign in to discover & share delicious recipes 🍲</div>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username</label>
+          <input type="text" id="username" name="username" autoComplete="username" required />
+          <label htmlFor="password">Password</label>
+          <input type="password" id="password" name="password" autoComplete="current-password" required />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </>
   );
 }
 

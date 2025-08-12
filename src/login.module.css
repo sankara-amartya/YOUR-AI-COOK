@@ -1,0 +1,156 @@
+.food-icon {
+	/* ...existing code... */
+	animation: float 4s ease-in-out infinite;
+}
+.food-icon.fork { animation-delay: 0s; }
+.food-icon.spoon { animation-delay: 1s; }
+.food-icon.pizza { animation-delay: 2s; }
+.food-icon.cupcake { animation-delay: 3s; }
+
+@keyframes float {
+	0% { transform: translateY(0) scale(1) rotate(var(--angle, 0deg)); }
+	50% { transform: translateY(-18px) scale(1.04) rotate(var(--angle, 0deg)); }
+	100% { transform: translateY(0) scale(1) rotate(var(--angle, 0deg)); }
+}
+
+.login-container {
+	/* ...existing code... */
+	animation: popin 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes popin {
+	0% { opacity: 0; transform: scale(0.85) translateY(40px); }
+	80% { opacity: 1; transform: scale(1.04) translateY(-8px); }
+	100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.login-container button {
+	/* ...existing code... */
+	animation: bouncein 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes bouncein {
+	0% { opacity: 0; transform: scale(0.7); }
+	60% { opacity: 1; transform: scale(1.08); }
+	100% { opacity: 1; transform: scale(1); }
+}
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	background: linear-gradient(135deg, #f7ffe0 0%, #a8e063 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Segoe UI', Arial, sans-serif;
+	position: relative;
+}
+
+/* Decorative food icons */
+.food-icon {
+	position: absolute;
+	z-index: 1;
+	opacity: 0.13;
+	font-size: 90px;
+	pointer-events: none;
+}
+.food-icon.fork { left: 8vw; top: 10vh; transform: rotate(-20deg); }
+.food-icon.spoon { right: 10vw; top: 20vh; transform: rotate(15deg); }
+.food-icon.pizza { left: 15vw; bottom: 12vh; transform: rotate(-10deg); }
+.food-icon.cupcake { right: 12vw; bottom: 8vh; transform: rotate(8deg); }
+
+.login-container {
+	background: rgba(255, 255, 255, 0.98);
+	border-radius: 22px;
+	box-shadow: 0 8px 32px 0 rgba(168, 224, 99, 0.18), 0 2px 8px 0 rgba(34, 49, 63, 0.10);
+	padding: 48px 36px 36px 36px;
+	max-width: 370px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	z-index: 2;
+	position: relative;
+	border: 2.5px solid #e6f7c1;
+}
+
+.login-container h1 {
+	color: #368036;
+	margin-bottom: 10px;
+	font-weight: 800;
+	letter-spacing: 1.5px;
+	font-size: 2.1rem;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.login-container .subtitle {
+	color: #a8e063;
+	font-size: 1.1rem;
+	margin-bottom: 28px;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+}
+
+.login-container label {
+	color: #368036;
+	font-size: 1rem;
+	margin-bottom: 6px;
+	align-self: flex-start;
+	font-weight: 600;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+	width: 100%;
+	padding: 12px 14px;
+	margin-bottom: 20px;
+	border: 1.5px solid #d2e7b3;
+	border-radius: 10px;
+	background: #fafff3;
+	font-size: 1.07rem;
+	transition: border 0.2s, box-shadow 0.2s;
+	box-shadow: 0 1px 4px rgba(168, 224, 99, 0.07);
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+	border: 2px solid #368036;
+	outline: none;
+	box-shadow: 0 0 0 2px #e6f7c1;
+}
+
+.login-container button {
+	width: 100%;
+	padding: 13px 0;
+	background: linear-gradient(90deg, #ffb347 60%, #ffcc80 100%);
+	color: #368036;
+	border: none;
+	border-radius: 10px;
+	font-size: 1.13rem;
+	font-weight: 700;
+	cursor: pointer;
+	box-shadow: 0 2px 8px rgba(255, 179, 71, 0.13);
+	margin-top: 10px;
+	transition: background 0.2s, transform 0.1s;
+	letter-spacing: 0.5px;
+}
+
+.login-container button:hover {
+	background: linear-gradient(90deg, #ffcc80 60%, #ffb347 100%);
+	color: #fff;
+	transform: translateY(-2px) scale(1.04);
+	box-shadow: 0 4px 16px rgba(255, 179, 71, 0.18);
+}
+
+.login-container .error-message {
+	color: #d32f2f;
+	background: #fff0f0;
+	border: 1px solid #f5c6cb;
+	border-radius: 6px;
+	padding: 8px 12px;
+	margin-bottom: 12px;
+	width: 100%;
+	text-align: center;
+	font-size: 0.97rem;
+}
